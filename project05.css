@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items at the top instead of the center */
+    min-height: 100vh; /* Use min-height instead of height to allow scrolling */
+    background-color: #f9f9f9;
+  }
+  
+  .drawing-app {
+    width: 90%;
+    max-width: 800px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Add some spacing from the top */
+  }
+  
+  h1 {
+    text-align: center;
+    margin: 0 0 20px; /* Ensure the title has proper spacing below */
+  }
+  
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+  
+  .controls label {
+    margin-right: 5px;
+  }
+  
+  canvas {
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    cursor: crosshair;
+  }
+  
