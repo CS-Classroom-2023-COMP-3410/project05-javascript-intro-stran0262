@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
@@ -23,12 +23,13 @@ body {
     margin-bottom: 20px;
 }
 
-#controls {
-    text-align: left;
+#toggle-format {
+    margin-bottom: 20px; /* Add spacing between the button and settings */
 }
 
 label {
     margin-right: 10px;
+    font-size: x-large;
 }
 
 #alarms-list {
