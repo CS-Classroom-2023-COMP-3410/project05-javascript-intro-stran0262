@@ -1,0 +1,28 @@
+/* Basic styles for visualization */
+#array-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 400px;
+    width: 80%;
+    margin: 20px auto;
+  }
+  
+  .bar {
+    width: 20px;
+    margin: 0 2px;
+    background-color: #4CAF50;
+  }
+  
+  .highlight {
+    background-color: #FF5733; /* Highlighted bars */
+  }
+  
+  #controls {
+    text-align: center;
+  }
+  
+  #commentary {
+    margin-top: 20px;
+  }
+  

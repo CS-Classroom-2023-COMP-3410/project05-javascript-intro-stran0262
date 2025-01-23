@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorting Algorithm Visualizer</title>
+  <link rel="stylesheet" href="project09.css">
+</head>
+<body>
+  <h1>Sorting Algorithm Visualizer</h1>
+  
+  <div id="array-container"></div>
+  
+  <div id="controls">
+    <button onclick="startSorting('selection')">Selection Sort</button>
+    <button onclick="startSorting('insertion')">Insertion Sort</button>
+    <button onclick="startSorting('bubble')">Bubble Sort</button>
+    <button onclick="resetArray()">Reset Array</button>
+    <br><br>
+    <label for="speed">Animation Speed (ms):</label>
+    <input type="range" id="speed" min="10" max="500" value="100">
+    <br>
+    <div id="commentary"></div>
+  </div>
+
+  <script src="js/project09.js"></script>
+</body>
+</html>
