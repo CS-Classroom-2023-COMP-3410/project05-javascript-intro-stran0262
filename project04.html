@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Academic Quiz</title>
-  <link rel="stylesheet" href="project04.css">
-</head>
-<body>
-  <div id="quiz">
-    <div id="question-container">
-      <p id="question"></p>
-      <ul id="options"></ul>
-    </div>
-    <div id="result"></div>
-    <button id="reviewButton" onclick="reviewAnswers()" style="display:none;">Review Answers</button>
-    <div id="review"></div>
-  </div>
+  <head>
+    <title>Dynamic Academic Quiz</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="project04.css">
 
-  <script src="js/project04.js"></script>
-</body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <!-- Quiz background -->
+    <div id="quiz">
+      <!-- Quiz content -->
+      <div id="question-container">
+        <!-- Question -->
+        <p id="question"></p>
+        <!-- Options -->
+        <ul id="options"></ul>
+      </div>
+      <!-- Results -->
+      <div id="result"></div>
+      <!-- Review -->
+      <button id="reviewButton" onclick="reviewAnswers()" style="display:none;">Review Answers</button>
+      <div id="review"></div>
+    </div>
+    <!-- JS -->
+    <script src="js/project04.js"></script>
+  </body>
 </html>

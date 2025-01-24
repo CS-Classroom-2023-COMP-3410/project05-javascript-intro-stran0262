@@ -1,52 +1,59 @@
+/* Background style */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    padding: 20px;
-  }
-  
-  #quiz {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  #question {
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  #options {
-    list-style: none;
-    padding: 0;
-  }
-  
-  #options li {
-    padding: 10px;
-    background-color: #e9e9e9;
-    margin: 5px 0;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-  }
-  
-  #options li:hover {
-    background-color: #d0d0d0;
-  }
-  
-  button {
-    padding: 10px 15px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 20px;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+/* Quiz container style */
+#quiz {
+max-width: 600px;
+margin: 0 auto;
+background-color: #e8f5e9;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Question style */
+#question {
+font-size: 22px;
+font-weight: bold;
+color: #2e7d32; 
+}
+
+/* Option styles */
+#options {
+list-style: none;
+padding: 0;
+}
+
+#options li {
+padding: 10px;
+background-color: rgb(198, 223, 200);
+margin: 5px 0;
+cursor: pointer;
+border-radius: 4px;
+transition: background-color 0.3s;
+}
+
+#options li:hover {
+border: 1px solid black;
+background-color: #CFFBCF;
+}
+
+/* Revieew button styles */
+button {
+padding: 10px 15px;
+background-color: #4CAF50;
+color: white;
+border: none;
+cursor: pointer;
+border-radius: 5px;
+margin-top: 20px;
+}
+
+button:hover {
+background-color: #45a049;
+}
