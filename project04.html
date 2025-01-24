@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Dynamic Academic Quiz</title>
+    <title>Academic Quiz</title>
     <!-- CSS -->
     <link rel="stylesheet" href="project04.css">
 
@@ -9,13 +9,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <!-- Quiz background -->
-    <div id="quiz">
+    <!-- Main menu -->
+    <div id="main-menu">
+      <h1 style="font-size: 5vw">Select a Subject</h1>
+      <!-- Subject options -->
+      <div class="circle-menu">
+        <button onclick="startQuiz('literature')">Literature</button>
+        <button onclick="startQuiz('math')">Math</button>
+        <button onclick="startQuiz('history')">History</button>
+        <button onclick="startQuiz('geography')">Geography</button>
+        <button onclick="startQuiz('science')">Science</button>
+      </div>
+    </div>
+
+    <!-- Quiz -->
+    <div id="quiz" style="display:none;">
+      <!-- Back arrow -->
+      <div id="back-arrow" style="cursor: pointer; font-size: 24px; color: #2e7d32; position: absolute; top: -5px; left: 10px;" onclick="goBack()">&#8592;</div>
       <!-- Quiz content -->
       <div id="question-container">
-        <!-- Question -->
         <p id="question"></p>
-        <!-- Options -->
         <ul id="options"></ul>
       </div>
       <!-- Results -->
