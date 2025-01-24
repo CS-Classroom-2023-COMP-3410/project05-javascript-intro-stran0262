@@ -25,7 +25,8 @@ function renderArray() {
   array.forEach((value, index) => {
     const bar = document.createElement("div");
     bar.classList.add("bar");
-    bar.style.height = `${value * 4}px`; // Scale the height
+    bar.style.height = `${value * 3.5}px`; // Scale the height
+    bar.setAttribute("data-value", value); // Set the value as a data attribute
     bars.push(bar);
     container.appendChild(bar);
   });

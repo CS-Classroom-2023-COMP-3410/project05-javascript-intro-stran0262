@@ -1,28 +1,125 @@
-/* Basic styles for visualization */
 #array-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    height: 400px;
-    width: 80%;
-    margin: 20px auto;
-  }
-  
-  .bar {
-    width: 20px;
-    margin: 0 2px;
-    background-color: #4CAF50;
-  }
-  
-  .highlight {
-    background-color: #FF5733; /* Highlighted bars */
-  }
-  
-  #controls {
-    text-align: center;
-  }
-  
-  #commentary {
-    margin-top: 20px;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 340px;
+  width: 80%;
+  margin: 15px auto;
+  background-color: #f7f7f7;
+}
+
+/* Bar styles */
+.bar {
+  position: relative;  /* Needed for tooltip positioning */
+  width: 20px;
+  margin: 0 2px;
+  background: linear-gradient(to top, #ff4d4d, #ff9933);
+  border-radius: 4px; /* Slight rounding for a polished look */
+  transition: transform 0.2s ease; /* Animation for hover scaling */
+}
+
+.bar:hover {
+  transform: scale(1.1); /* Slightly enlarge the bar when hovered */
+}
+
+.bar:hover::after {
+  content: attr(data-value); /* Display the value stored in data-value */
+  position: absolute;
+  top: -35px; /* Position tooltip above the bar */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(248, 131, 121, 0.8); 
+  color: white;
+  padding: 5px 12px; /* Padding for better readability */
+  border-radius: 6px; /* Rounded corners for a smoother look */
+  font-size: 14px; /* Text size */
+  font-weight: bold; /* Highlight the value */
+  white-space: nowrap; /* Prevent text wrap */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+  pointer-events: none; /* Prevent interaction with the tooltip */
+  z-index: 10; /* Ensure the tooltip appears above other elements */
+  opacity: 0; /* Start with hidden tooltip */
+  transition: opacity 0.2s ease, transform 0.2s ease; /* Smooth fade-in/out */
+}
+
+.bar:hover::after {
+  opacity: 1; /* Make the tooltip visible */
+  transform: translateX(-50%) translateY(-5px); /* Slight upward animation */
+}
+
+#controls {
+  text-align: center;
+}
+
+/* Button styles */
+button {
+  background-color: #ff9933; /* Accent color for buttons */
+  color: white; /* White text on buttons */
+  border: none;
+  padding: 8px 21px;
+  border-radius: 6px; /* Rounded corners */
+  font-size: 16px; /* Larger text for better readability */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  margin: 10px;
+}
+
+button:hover {
+  background-color: #d77f28; /* Darker shade of orange for hover effect */
+  transform: scale(1.05); /* Slightly larger on hover */
+}
+
+button:active {
+  background-color: #d77f28; /* Even darker shade on active click */
+  transform: scale(0.98); /* Button slightly shrinks on click */
+  outline: 2px solid #c67a3f; /* Thicker outline with a color similar to the active button */
+  outline-offset: 4px; /* Space between the button and the outline */
+}
+
+/* Slider styles */
+.flex-container {
+  display: flex; /* Use flexbox to lay items side by side */
+  justify-content: center; /* Vertically center the items */
+  gap: 10px; /* Optional: Adds space between label and input */
+}
+
+label {
+  font-size: 16px;
+  color: #333; /* Dark gray text for readability */
+  margin-right: 10px;
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none; 
+  width: 25%;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 15px;
+  background: #ccc;
+  border-radius: 16px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none; 
+  height: 15px;
+  width: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 2px solid #f50;
+  box-shadow: -407px 0 0 400px #f50;
+}
+
+#commentary {
+  font-size: 18px;
+}
