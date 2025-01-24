@@ -4,7 +4,8 @@ const board = document.getElementById('board');
 const timerDisplay = document.getElementById('timer');
 const movesDisplay = document.getElementById('moves');
 
-const cards = ['🍎', '🍌', '🥝', '🍊', '🍇', '🍓', '🍋', '🍐'];
+const cards = ['🌑', '🌒', '🌓', '🌔', '🌕', '🌖', '🌗', '🌘'];
+
 let shuffledCards = [];
 let flippedCards = [];
 let matchedCards = [];
@@ -138,3 +139,10 @@ restartBtn.addEventListener('click', restartGame);
 // Initialize game
 createBoard();
 restartBtn.style.display = 'none'; // Hide the restart button initially
+
+// When the game starts:
+document.body.classList.add('game-started');
+
+// When restarting the game (you can trigger this based on your game logic):
+document.body.classList.remove('game-started');
+

@@ -1,22 +1,27 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Cinzel', serif; /* Use a more elegant, vintage font for the entire body */
+    background-color: #3e0a1e; /* Dark red background */
+    color: #fff; /* Light text color for contrast */
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 #game {
     display: inline-block;
-    padding: 20px;
-    border: 2px solid #333;
-    background-color: #f9f9f9;
 }
 
 h1 {
-    color: #333;
+    color: #f4d35e; /* Golden yellow text for the title */
+    font-size: 2.5em;
+    letter-spacing: 3px;
+    text-shadow: 0px 0px 20px #f4d35e, 0px 0px 30px #f4d35e;
 }
 
 #timer, #moves {
     margin: 10px;
     font-size: 1.2em;
+    color: #f4d35e; /* Golden text for a magical vibe */
 }
 
 .board {
@@ -27,39 +32,71 @@ h1 {
     justify-content: center;
 }
 
+/* Style for the memory cards to look like tarot cards */
 .card {
     width: 100px;
-    height: 100px;
-    background-color: #ccc;
+    height: 150px; /* Taller cards to resemble tarot cards */
+    border-radius: 12px;
+    border: 2px solid black; /* Dark border to give it a vintage look */
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2em;
     cursor: pointer;
-    border-radius: 8px;
     position: relative;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease-in-out;
+
+    /* Set the back of the card as an image */
+    background-image: url('Card.jpg');
+    background-size: cover; /* Make sure the image covers the whole card */
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
+/* When the card is flipped */
 .card.flipped {
-    background-color: #fff;
+    background-color: #5A6A91; /* Card flips to reveal content */
+    background-image: none; /* Remove the back image */
 }
 
+/* When the cards match */
 .card.matched {
-    background-color: #4CAF50;
+    background-color: #2e8b57;
     color: white;
+    font-weight: bold;
+    box-shadow: 0 0 15px 5px rgba(46, 139, 87, 0.7); /* Glowing effect for matched cards */
 }
 
 .restart-btn, .start-btn {
     margin-top: 20px;
     padding: 10px 20px;
-    font-size: 1em;
-    background-color: #f44336;
-    color: white;
-    border: none;
+    font-size: 1.2em;
+    background-color: #4a2f28; /* Dark, earthy background for buttons */
+    color: #f4d35e; /* Golden text */
+    border: 2px solid #8c5e3c;
+    border-radius: 8px;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    display: block; /* Make the buttons block-level elements */
+    margin-left: auto;
+    margin-right: auto; /* Center the buttons horizontally */
+    width: fit-content;
 }
 
+/* Hide the restart button initially */
+.restart-btn {
+    display: none; /* Hide restart button by default */
+}
+
+/* Show the restart button after the game starts */
+.game-started .restart-btn {
+    display: block; /* Show restart button when the game starts */
+}
+
+/* Hover effects for buttons */
 .restart-btn:hover, .start-btn:hover {
-    background-color: #d32f2f;
+    background-color: #8c5e3c; /* Lighter brown for hover effect */
+    color: #fff;
+    transform: scale(1.05); /* Slight scaling effect */
 }
