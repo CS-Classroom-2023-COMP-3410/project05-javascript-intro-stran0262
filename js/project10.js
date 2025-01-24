@@ -44,6 +44,7 @@ const texts = {
 };
 
 function startExercise() {
+    startBtn.style.display = 'none'; // Hide start button
     exerciseArea.classList.remove('hidden');
     results.classList.add('hidden');
     userInput.value = "";
