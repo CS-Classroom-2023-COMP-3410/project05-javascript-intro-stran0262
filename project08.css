@@ -1,32 +1,71 @@
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  background-image: url("Forest.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+html::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(34, 193, 195, 0.2), rgba(253, 187, 45, 0.2));
+  pointer-events: none; /* Ensures overlay doesn't interfere with user interactions */
+  z-index: -1; /* Sits above the background */
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  font-family: 'Cinzel Decorative', cursive;
+  background-color: transparent;
   margin: 0;
   padding: 20px;
+  color: black; /* Soft light color for text */
   text-align: center;
+  overflow: hidden;
 }
 
 #game-container {
-  max-width: 600px;
+  max-width: 60%;
+  max-height: 90%;
+
   margin: 0 auto;
-  background-color: #fff;
+  margin-top: 15vh;
+  background-color: #ffffff53;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  justify-content: center;
+  align-content: center;
 }
 
 button {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 16px;
   padding: 10px 20px;
   margin: 10px;
   background-color: #4CAF50;
-  color: white;
+  color: black;
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 button:hover {
   background-color: #45a049;
+  transform: scale(1.1); /* Slightly enlarges the button */
+  box-shadow: 0 0 15px rgba(72, 239, 84, 0.6), /* Green glow effect */
+              0 0 30px rgba(72, 239, 84, 0.4);
 }
 
 #choices {
@@ -34,27 +73,32 @@ button:hover {
 }
 
 #choices button {
+
   margin: 5px;
   padding: 10px;
   background-color: #3498db; /* Light blue */
   border-radius: 5px;
   border: none;
   color: white; /* Ensures the text is visible */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 #choices button:hover {
   background-color: #2980b9; /* Darker blue on hover */
+  transform: scale(1.1); /* Slightly enlarges the button */
+  box-shadow: 0 0 15px rgba(52, 152, 219, 0.6), /* Blue glow effect */
+              0 0 30px rgba(52, 152, 219, 0.4);
 }
 
 /* Progress bar styles */
-#progress-bar-container {
+/* #progress-bar-container {
   margin-top: 20px;
   text-align: center;
 }
 
 #progress-bar {
   width: 100%;
-  height: 20px;
+  height: 30px;
 }
 
 #progress-text {
@@ -62,4 +106,255 @@ button:hover {
   margin-top: 5px;
   font-size: 16px;
   font-weight: bold;
+} */
+
+/* Progress bar */
+/* Progress bar container */
+#progress-bar-container {
+  margin-top: 20px;
+  text-align: center;
+
 }
+
+/* Progress bar */
+#progress-bar {
+  width: 100%;
+  height: 20px;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  background-color: white; /* Set unfilled part to white */
+}
+
+/* Unfilled progress bar part */
+#progress-bar::-webkit-progress-bar {
+  background-color: white; /* Set the unfilled part to white */
+}
+
+/* Colored progress bar part with gradient */
+#progress-bar::-webkit-progress-value {
+  background: linear-gradient(90deg, #FFDD57, #FFECB3);
+  border-radius: 15px 0 0 15px; /* Rounded left corners */
+}
+
+/* Progress text */
+#progress-text {
+  display: block;
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: black; /* Dark gray for better readability */
+  font-family: 'Cinzel Decorative', cursive;
+}
+
+
+
+#particle-container {
+  position: fixed; /* Fixed positioning to cover the entire screen */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;  
+  z-index: 0; /* Ensures particles stay behind other content */
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #FFD700; /* Golden yellow */
+  box-shadow: 0 0 3px #FFD700; /* Golden yellow box shadow */
+  animation-duration: 60s;
+  animation-iteration-count: infinite;
+}
+
+.particle:nth-child(odd) {
+  height: 9px;
+  width: 9px;
+}
+
+.particle:nth-child(even) {
+  height: 7px;
+  width: 7px;
+}
+
+.particle:nth-child(1) {
+  opacity: 0.46;
+  animation-name: particle1;
+  animation-delay: -0.2s;
+  transform: translate3d(55vw, 79vh, 22px);
+}
+@keyframes particle1 {
+  100% {
+      transform: translate3d(80vw, 51vh, 9px);
+  }
+}
+
+.particle:nth-child(2) {
+  opacity: 0.08;
+  animation-name: particle2;
+  animation-delay: -0.4s;
+  transform: translate3d(4vw, 21vh, 14px);
+}
+@keyframes particle2 {
+  100% {
+      transform: translate3d(31vw, 35vh, 87px);
+  }
+}
+
+.particle:nth-child(3) {
+  opacity: 0.41;
+  animation-name: particle3;
+  animation-delay: -0.6s;
+  transform: translate3d(78vw, 63vh, 52px);
+}
+@keyframes particle3 {
+  100% {
+      transform: translate3d(42vw, 66vh, 40px);
+  }
+}
+
+.particle:nth-child(4) {
+  opacity: 0.33;
+  animation-name: particle4;
+  animation-delay: -0.8s;
+  transform: translate3d(56vw, 32vh, 88px);
+}
+@keyframes particle4 {
+  100% {
+      transform: translate3d(78vw, 4vh, 55px);
+  }
+}
+
+.particle:nth-child(5) {
+  opacity: 0.4;
+  animation-name: particle5;
+  animation-delay: -1s;
+  transform: translate3d(79vw, 74vh, 14px);
+}
+@keyframes particle5 {
+  100% {
+      transform: translate3d(2vw, 47vh, 68px);
+  }
+}
+
+.particle:nth-child(6) {
+  opacity: 0.41;
+  animation-name: particle6;
+  animation-delay: -1.2s;
+  transform: translate3d(92vw, 27vh, 61px);
+}
+@keyframes particle6 {
+  100% {
+      transform: translate3d(80vw, 35vh, 11px);
+  }
+}
+
+.particle:nth-child(7) {
+  opacity: 0.74;
+  animation-name: particle7;
+  animation-delay: -1.4s;
+  transform: translate3d(55vw, 60vh, 75px);
+}
+@keyframes particle7 {
+  100% {
+      transform: translate3d(63vw, 15vh, 59px);
+  }
+}
+
+.particle:nth-child(8) {
+  opacity: 0.09;
+  animation-name: particle8;
+  animation-delay: -1.6s;
+  transform: translate3d(10vw, 10vh, 55px);
+}
+@keyframes particle8 {
+  100% {
+      transform: translate3d(30vw, 64vh, 91px);
+  }
+}
+
+.particle:nth-child(9) {
+  opacity: 0.89;
+  animation-name: particle9;
+  animation-delay: -1.8s;
+  transform: translate3d(3vw, 53vh, 98px);
+}
+@keyframes particle9 {
+  100% {
+      transform: translate3d(60vw, 80vh, 97px);
+  }
+}
+
+.particle:nth-child(10) {
+  opacity: 0.23;
+  animation-name: particle10;
+  animation-delay: -2s;
+  transform: translate3d(64vw, 77vh, 95px);
+}
+@keyframes particle10 {
+  100% {
+      transform: translate3d(18vw, 5vh, 7px);
+  }
+}
+
+.particle:nth-child(11) {
+  opacity: 0.96;
+  animation-name: particle11;
+  animation-delay: -2.2s;
+  transform: translate3d(35vw, 6vh, 101px);
+}
+@keyframes particle11 {
+  100% {
+      transform: translate3d(88vw, 14vh, 71px);
+  }
+}
+
+.particle:nth-child(12) {
+  opacity: 0.52;
+  animation-name: particle12;
+  animation-delay: -2.4s;
+  transform: translate3d(55vw, 12vh, 33px);
+}
+@keyframes particle12 {
+  100% {
+      transform: translate3d(46vw, 5vh, 3px);
+  }
+}
+
+.particle:nth-child(13) {
+  opacity: 0.95;
+  animation-name: particle13;
+  animation-delay: -2.6s;
+  transform: translate3d(90vw, 27vh, 70px);
+}
+@keyframes particle13 {
+  100% {
+      transform: translate3d(51vw, 75vh, 18px);
+  }
+}
+
+.particle:nth-child(14) {
+  opacity: 0.98;
+  animation-name: particle14;
+  animation-delay: -2.8s;
+  transform: translate3d(3vw, 73vh, 11px);
+}
+@keyframes particle14 {
+  100% {
+      transform: translate3d(43vw, 46vh, 28px);
+  }
+}
+
+.particle:nth-child(15) {
+  opacity: 0.69;
+  animation-name: particle15;
+  animation-delay: -3s;
+  transform: translate3d(86vw, 82vh, 46px);
+}
+@keyframes particle15 {
+  100% {
+      transform: translate3d(16vw, 31vh, 36px);
+  }
+}
+
+

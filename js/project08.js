@@ -1,7 +1,7 @@
 // Store the game's story structure and choices
 const storyData = {
   start: {
-    text: 'You wake up in a dense, magical forest. The sun peeks through the canopy, and you clutch a mysterious key in your hand. A soft voice whispers in the air, "Find the Door, unlock the truth." What will you do?',
+    text: 'You wake up in a dense, magical forest. The sun peeks through the canopy, and you clutch a mysterious key in your hand. <br><br> A soft voice whispers in the air, "Find the Door, unlock the truth." <br> What will you do?',
     step: 1,
     choices: [
       { text: "Inspect the key", next: "inspectKey" },
@@ -25,7 +25,7 @@ const storyData = {
     ]
   },
   followArrow: {
-    text: 'The arrow leads you to a stone pedestal with a glowing inscription: "The brave solve the riddle. The faint-hearted leave." The riddle reads: "I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?"',
+    text: 'The arrow leads you to a stone pedestal with a glowing inscription: "The brave solve the riddle. The faint-hearted leave." <br><br> The riddle reads: "I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?"',
     step: 4,
     choices: [
       { text: "Answer: An Echo", next: "answer" },
@@ -56,7 +56,7 @@ const storyData = {
     ]
   },
   takeEgg: {
-    text: 'The egg begins to crack, and before you can react, it hatches into a furious baby dragon. Its eyes burn with rage, and before you can even defend yourself, it unleashes a blast of fire that consumes you.',
+    text: 'The egg cracks open, revealing a furious baby dragon. It breathes fire, narrowly missing you as you dodge. Singed and shaken, you realize this is a battle you can’t win.',
     step: 8,
     choices: [
       { text: "Start over", next: "start" }
@@ -140,30 +140,49 @@ let gameProgress = [];
 
 // Function to update the game state and display new story text and choices
 function updateGame() {
-const currentStory = storyData[currentLocation];
-const storyText = document.getElementById("story");
-const choicesContainer = document.getElementById("choices");
-const progressBar = document.getElementById("progress-bar");
-const progressText = document.getElementById("progress-text");
-const totalSteps = 17;
+  const currentStory = storyData[currentLocation];
+  const storyText = document.getElementById("story");
+  const choicesContainer = document.getElementById("choices");
+  const progressBar = document.getElementById("progress-bar");
+  const progressText = document.getElementById("progress-text");
+  const totalSteps = 17;
 
-// Update story text
-storyText.innerHTML = currentStory.text;
+  // Update story text
+  storyText.innerHTML = currentStory.text;
 
-// Clear previous choices and create new ones
-choicesContainer.innerHTML = "";
-currentStory.choices.forEach(choice => {
-  const button = document.createElement("button");
-  button.innerText = choice.text;
-  button.onclick = () => makeChoice(choice.next);
-  choicesContainer.appendChild(button);
-});
+  // Clear previous choices and create new ones
+  choicesContainer.innerHTML = "";
+  currentStory.choices.forEach(choice => {
+    const button = document.createElement("button");
+    button.innerText = choice.text;
+    button.onclick = () => makeChoice(choice.next);
+    choicesContainer.appendChild(button);
+  });
 
-// Update progress bar
+  // Calculate the progress percentage
+  const targetProgress = ((currentStory.step - 1) / totalSteps) * 100;
 
-const progress = ((currentStory.step - 1) / totalSteps) * 100; // Calculate the progress percentage
-progressBar.value = progress;
-progressText.innerText = `${Math.round(progress)}%`;
+  // Animate the progress bar filling
+  animateProgressBar(progressBar, targetProgress, progressText);
+}
+
+// Function to animate the progress bar gradually
+function animateProgressBar(progressBar, targetProgress, progressText) {
+  let currentProgress = progressBar.value;
+
+  // If the progress bar is already at the target value, exit the function
+  if (currentProgress === targetProgress) return;
+
+  let increment = currentProgress < targetProgress ? 1 : -1;
+  let interval = setInterval(() => {
+    if ((increment === 1 && currentProgress < targetProgress) || (increment === -1 && currentProgress > targetProgress)) {
+      currentProgress += increment;
+      progressBar.value = currentProgress;
+      progressText.innerText = `${Math.round(currentProgress)}%`;
+    } else {
+      clearInterval(interval);
+    }
+  }, 30); // Adjust the interval to control the speed of the animation
 }
 
 // Handle choice selection
