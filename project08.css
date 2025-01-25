@@ -6,6 +6,7 @@ html {
   justify-content: center;
   align-items: center;
   
+  /* Image background */
   background-image: url("Forest.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -34,6 +35,7 @@ body {
   overflow: hidden;
 }
 
+/* Game styles */
 #game-container {
   max-width: 60%;
   max-height: 90%;
@@ -48,6 +50,7 @@ body {
   align-content: center;
 }
 
+/* Option button styles*/
 button {
   font-family: 'Cinzel Decorative', cursive;
   font-size: 16px;
@@ -68,12 +71,12 @@ button:hover {
               0 0 30px rgba(72, 239, 84, 0.4);
 }
 
+/* Story choice styles */
 #choices {
   margin-top: 20px;
 }
 
 #choices button {
-
   margin: 5px;
   padding: 10px;
   background-color: #3498db; /* Light blue */
@@ -91,24 +94,6 @@ button:hover {
 }
 
 /* Progress bar styles */
-/* #progress-bar-container {
-  margin-top: 20px;
-  text-align: center;
-}
-
-#progress-bar {
-  width: 100%;
-  height: 30px;
-}
-
-#progress-text {
-  display: block;
-  margin-top: 5px;
-  font-size: 16px;
-  font-weight: bold;
-} */
-
-/* Progress bar */
 /* Progress bar container */
 #progress-bar-container {
   margin-top: 20px;
@@ -147,8 +132,7 @@ button:hover {
   font-family: 'Cinzel Decorative', cursive;
 }
 
-
-
+/* Particle styles */
 #particle-container {
   position: fixed; /* Fixed positioning to cover the entire screen */
   top: 0;
@@ -177,6 +161,7 @@ button:hover {
   width: 7px;
 }
 
+/* Individaul particle behavior */
 .particle:nth-child(1) {
   opacity: 0.46;
   animation-name: particle1;

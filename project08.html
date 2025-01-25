@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>Interactive Story Game</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="project08.css">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Story Game</title>
-  <link rel="stylesheet" href="project08.css">
 </head>
 <body>
+  <!-- Particles -->
   <div id="particle-container">
     <div class="particle"></div>
     <div class="particle"></div>
@@ -24,8 +27,9 @@
     <div class="particle"></div>
     <div class="particle"></div>
     
+    <!-- Game text -->
     <div id="game-container">
-      <h1>Interactive Story Game</h1>
+      <h1>Choose Your Own Adventure</h1>
       <div id="story"></div>
       <div id="choices"></div>
 
@@ -35,11 +39,13 @@
         <span id="progress-text">0%</span>
       </div>
 
+      <!-- Options -->
       <button id="reset-button" onclick="resetGame()">Reset Game</button>
       <button id="save-button" onclick="saveProgress()">Save Progress</button>
       <button id="resume-button" onclick="resumeProgress()">Resume Progress</button>
     </div>
   </div>
+  <!-- JS -->
   <script src="js/project08.js"></script>
 </body>
 </html>
