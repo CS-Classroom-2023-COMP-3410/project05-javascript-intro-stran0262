@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>Customizable Drawing Canvas</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="project05.css">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customizable Drawing Canvas</title>
-  <link rel="stylesheet" href="project05.css">
 </head>
 <body>
+  <!-- Paint splashes -->
+  <div class="splash1"></div>
+  <div class="splash2"></div>
+  <div class="splash3"></div>
+  <div class="splash4"></div>
+
+  <!-- Drawing container -->
   <div class="drawing-app">
     <h1>Customizable Drawing Canvas</h1>
+    <!-- Custom controls -->
     <div class="controls">
       <label for="brush-color">Brush Color:</label>
       <input type="color" id="brush-color" value="#000000">
@@ -18,13 +28,17 @@
 
       <label for="background-color">Background Color:</label>
       <input type="color" id="background-color" value="#ffffff">
-      
-      <button id="clear-canvas">Clear Canvas</button>
-      <button id="undo">Undo</button>
-      <button id="save-image">Save Image</button>
     </div>
+    <!-- Options -->
+    <div class="options">
+      <button class="btn" id="clear-canvas">Clear</button>
+      <button class="btn" id="undo">Undo</button>
+      <button class="btn" id="save-image">Save Image</button>
+    </div>
+    <!-- Canvas -->
     <canvas id="drawing-canvas"></canvas>
   </div>
+  <!-- JS -->
   <script src="js/project05.js"></script>
 </body>
 </html>

@@ -64,6 +64,7 @@ function addPoint(e) {
   currentStroke.push({ x, y, color: brushColor, size: brushSize });
 }
 
+// Clears canvas
 function redrawCanvas() {
   ctx.fillStyle = backgroundColor;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -93,6 +94,7 @@ function redrawCanvas() {
   ctx.stroke();
 }
 
+// Handles setting background
 function setCanvasBackground(e) {
   backgroundColor = e.target.value;
   redrawCanvas();
@@ -118,11 +120,13 @@ function clearCanvas() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
+// Handles undo stroke
 function undoLastStroke() {
   strokes.pop();
   redrawCanvas();
 }
 
+// Saves image
 function saveCanvasImage() {
   const link = document.createElement('a');
   link.download = 'canvas-image.png';
