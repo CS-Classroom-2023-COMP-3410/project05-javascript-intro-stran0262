@@ -3,20 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Periodic Table</title>
+    <title>Periodic Table</title>
     <link rel="stylesheet" href="project06.css">
 </head>
 <body>
 
 <h1>Interactive Periodic Table</h1>
 
-<input type="text" id="search-bar" placeholder="Search by name, symbol, or atomic number">
+<input type="text" id="search-bar" placeholder="Search elements... ">
+
 
 <div id="periodic-table"></div>
 
-<div id="info"></div>
 
-<button id="reset-btn">Reset</button>
+<!-- Popup -->
+<div id="popup" class="popup-overlay">
+    <div class="popup-container">
+        <span id="close-popup" class="popup-close">&times;</span>
+        <div id="popup-content"></div>
+    </div>
+</div>
+
+
 
 <script src="js/project06.js"></script>
 </body>

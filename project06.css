@@ -1,62 +1,249 @@
+@font-face {
+    font-family: 'Cinzel';
+    src: url('Cinzel-VariableFont_wght.ttf');
+}
+
 body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            text-align: center;
-        }
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    background: linear-gradient(to bottom, #d2b48c, #fff, #d2b48c); /* Tan to white to tan gradient */
+    background-size: 100% 100%; /* Ensure the gradient stretches to fill the screen */
+    background-attachment: fixed; /* Fix the background so it stays in place */
+    background-repeat: no-repeat; /* No repeating gradient */
+    min-height: 95vh; /* Ensure the body takes up at least the full height of the viewport */
 
-        #search-bar {
-            margin-bottom: 20px;
-            padding: 10px;
-            font-size: 16px;
-        }
+}
 
-        #periodic-table {
-            display: grid;
-            grid-template-columns: repeat(18, 1fr); /* 18 columns for the elements */
-            grid-gap: 10px; /* Add space between the elements */
-            max-width: 1000px;
-            margin: 0 auto;
-            grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 30px 50px 50px;
-        }
+#search-bar {
+    font-family: 'Cinzel', serif;
+padding: 10px;
+font-size: 16px;
+border-radius: 15px;
+border: none;
+}
+
+#search-bar::placeholder {
+    color: black;
+}
+
+#periodic-table {
+    font-family: 'Cinzel', serif;
+display: grid;
+grid-template-columns: repeat(18, 1fr); /* 18 columns for the elements */
+grid-gap: 10px; /* Add space between the elements */
+max-width: 1000px;
+margin: 0 auto;
+grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 30px 50px 50px;
+font-size: 14px;
+font-weight: bold;
+}
+
+.element {
+padding: 10px;
+text-align: center;
+cursor: pointer;
+border-radius: 5px;
+transition: background-color 0.3s, color 0.3;
+border: 1px solid #ccc;
+}
+
+/* Color changes based on group */
+.element.Alkali { background-color: #FFB3B3; }
+.element.Alkaline { background-color: #FFCC99; }
+.element.Lanthanoid  { background-color: #FFFF99; }
+.element.Actinoid { background-color: #B3FFB3; }
+.element.Transition { background-color: #B3D9FF; }
+.element.Metallic { background-color: #C2B3FF; }
+.element.Metalloid { background-color: #E1B3FF; }
+.element.Nonmetal { background-color: #FFB3D9; }
+.element.Noble { background-color: #E6B3FF; }
+.element.Unknown { background-color: #D3D3D3  ; }
+
+/* Color changes based on phase */
+.element.gas { color: red; }
+.element.liquid { color: blue; }
+.element.solid { color: black; }
+.element.unknown { color: #333333 ; }
+
+.element:hover {
+    transform: scale(1.1); /* Slightly enlarge the element on hover */
+    border: 3px solid black;
+}
+
+.element.Alkali.selected {
+    border: 3px solid black; /* Thicker border for the selected element */
+    padding: 3px;
+    transform: scale(1.1); /* Increased scale */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px 3px rgba(255, 179, 179, 0.8); /* Glow when selected */
+}
+
+.element.Alkaline.selected {
+    border: 3px solid black; /* Thicker border for the selected element */
+    padding: 3px;
+    transform: scale(1.1); /* Increased scale */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px 3px rgba(255, 204, 153, 0.8); /* Glow when selected */
+}
+
+.element.Lanthanoid.selected {
+    border: 3px solid black; /* Thicker border for the selected element */
+    padding: 3px;
+    transform: scale(1.1); /* Increased scale */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px 3px rgba(255, 255, 153, 0.8); /* Glow when selected */
+}
+
+.element.Actinoid.selected {
+    border: 3px solid black; /* Thicker border for the selected element */
+    padding: 3px;
+    transform: scale(1.1); /* Increased scale */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px 3px rgba(179, 255, 179, 0.8); /* Glow when selected */
+}
+
+.element.Transition.selected {
+    border: 3px solid black; /* Thicker border for the selected element */
+    padding: 3px;
+    transform: scale(1.1); /* Increased scale */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px 3px rgba(179, 217, 255, 0.8); /* Glow when selected */
+}
+
+.element.Metallic.selected {
+    border: 3px solid black; /* Thicker border for the selected element */
+    padding: 3px;
+    transform: scale(1.1); /* Increased scale */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px 3px rgba(194, 179, 255, 0.8); /* Glow when selected */
+}
+
+.element.Metalloid.selected {
+    border: 3px solid black; /* Thicker border for the selected element */
+    padding: 3px;
+    transform: scale(1.1); /* Increased scale */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px 3px rgba(225, 179, 255, 0.8); /* Glow when selected */
+}
+
+.element.Nonmetal.selected {
+    border: 3px solid black; /* Thicker border for the selected element */
+    padding: 3px;
+    transform: scale(1.1); /* Increased scale */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px 3px rgba(255, 179, 217, 0.8); /* Glow when selected */
+}
+
+.element.Noble.selected {
+    border: 3px solid black; /* Thicker border for the selected element */
+    padding: 3px;
+    transform: scale(1.1); /* Increased scale */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px 3px rgba(230, 179, 255, 0.8); /* Glow when selected */
+}
+
+.element.Unknown.selected {
+    border: 3px solid black; /* Thicker border for the selected element */
+    padding: 3px;
+    transform: scale(1.1); /* Increased scale */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px 3px rgba(211, 211, 211, 0.8); /* Glow when selected */
+}
+
+.element.Alkali.group-highlight {
+    transform: scale(1.1); /* Increased scale */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px 3px rgba(255, 179, 179, 0.8); /* Alkali group glow */
+}
+
+.element.Alkaline.group-highlight {
+    transform: scale(1.1); /* Increased scale */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px 3px rgba(255, 204, 153, 0.8); /* Alkaline group glow */
+}
+
+.element.Lanthanoid.group-highlight {
+    transform: scale(1.1); /* Increased scale */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px 3px rgba(255, 255, 153, 0.8); /* Lanthanoid group glow */
+}
+
+.element.Actinoid.group-highlight {
+    transform: scale(1.1); /* Increased scale */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px 3px rgba(179, 255, 179, 0.8); /* Actinoid group glow */
+}
+
+.element.Transition.group-highlight {
+    transform: scale(1.1); /* Increased scale */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px 3px rgba(179, 217, 255, 0.8); /* Transition group glow */
+}
+
+.element.Metallic.group-highlight {
+    transform: scale(1.1); /* Increased scale */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px 3px rgba(194, 179, 255, 0.8); /* Metallic group glow */
+}
+
+.element.Metalloid.group-highlight {
+    transform: scale(1.1); /* Increased scale */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px 3px rgba(225, 179, 255, 0.8); /* Metalloid group glow */
+}
+
+.element.Nonmetal.group-highlight {
+    transform: scale(1.1); /* Increased scale */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px 3px rgba(255, 179, 217, 0.8); /* Nonmetal group glow */
+}
+
+.element.Noble.group-highlight {
+    transform: scale(1.1); /* Increased scale */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px 3px rgba(230, 179, 255, 0.8); /* Noble group glow */
+}
+
+.element.Unknown.group-highlight {
+    transform: scale(1.1); /* Increased scale */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px 3px rgba(211, 211, 211, 0.8); /* Unknown group glow */
+}
 
 
+/* Popup overlay */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+}
 
-        .element {
-            padding: 10px;
-            background-color: lightblue;
-            text-align: center;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            border: 1px solid #ccc;
-        }
+/* Popup container */
+.popup-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 80%;
+    text-align: center;
+}
 
-        .element.selected {
-            border: 3px solid black; /* Thicker border for the selected element */
-            padding: 3px;
-            background-color: lightgreen;
-        }
-
-        .element.group-highlight {
-            background-color: lightgreen; /* Group-highlighted elements */
-        }
-
-        #info {
-            margin-top: 20px;
-            font-size: 18px;
-        }
-
-        #reset-btn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-
-        #reset-btn:hover {
-            background-color: #45a049;
-        }
+.popup-close {
+    position: absolute;
+    top: 1px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+    color: black;
+}
