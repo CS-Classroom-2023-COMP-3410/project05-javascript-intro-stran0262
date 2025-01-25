@@ -188,7 +188,6 @@ document.getElementById('search-bar').addEventListener('input', (event) => {
     });
 });
 
-
 function renderPeriodicTable() {
     const tableContainer = document.getElementById('periodic-table');
     tableContainer.innerHTML = '';
@@ -271,7 +270,6 @@ function renderPeriodicTable() {
         });
     });
 }
-
 
 function selectElement(element) {
     selectedElement = element;
