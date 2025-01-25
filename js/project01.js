@@ -1,7 +1,8 @@
 // Select DOM elements
 const clock = document.getElementById('clock');
 const toggleFormatBtn = document.getElementById('toggle-format');
-const colorPicker = document.getElementById('color-picker');
+const backgroundPicker = document.getElementById('background-color-picker');
+const textPicker = document.getElementById('text-color-picker');
 const fontSizeInput = document.getElementById('font-size');
 const alarmTimeInput = document.getElementById('alarm-time');
 const setAlarmBtn = document.getElementById('set-alarm');
@@ -67,7 +68,12 @@ function updateAlarmInputFormat() {
 }
 
 // Color and font size customization
-colorPicker.addEventListener('input', (e) => {
+backgroundPicker.addEventListener('input', (e) => {
+    document.body.style.backgroundColor = e.target.value;
+    savePreferences();  // Save the background color preference
+});
+
+textPicker.addEventListener('input', (e) => {
     clock.style.color = e.target.value;
     savePreferences();
 });
@@ -125,13 +131,12 @@ function checkAlarms(hours, minutes) {
     }
 }
 
-
-
 // Save and load preferences
 function savePreferences() {
     const preferences = {
         is24HourFormat,
-        color: colorPicker.value,
+        backgroundColor: backgroundPicker.value,
+        color: textPicker.value,
         fontSize: fontSizeInput.value,
     };
     localStorage.setItem('clockPreferences', JSON.stringify(preferences));
@@ -141,15 +146,24 @@ function loadPreferences() {
     const preferences = JSON.parse(localStorage.getItem('clockPreferences'));
     if (preferences) {
         is24HourFormat = preferences.is24HourFormat;
-        colorPicker.value = preferences.color;
+        backgroundPicker.value = preferences.backgroundColor;
+        textPicker.value = preferences.color;
         clock.style.color = preferences.color;
         fontSizeInput.value = preferences.fontSize;
         clock.style.fontSize = `${preferences.fontSize}px`;
+        document.body.style.backgroundColor = preferences.backgroundColor;  // Apply saved background color
         toggleFormatBtn.textContent = is24HourFormat
             ? 'Switch to 12-Hour Format'
             : 'Switch to 24-Hour Format';
         updateAlarmInputFormat(); // Apply preferences to alarm input format
     }
 }
+
+
+
+
+
+
+
 
 initialize();
