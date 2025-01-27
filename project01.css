@@ -70,7 +70,7 @@ body {
     color: black;
 }
 
-/* Color picker styles */
+/* Input styles */
 input[type="color"], input[type="number"]{
     border: 1px solid black;
     margin-left: -5px; 
@@ -79,6 +79,7 @@ input[type="color"], input[type="number"]{
     transition: box-shadow 0.3s ease;
 }
 
+/* Color picker style */
 input[type="color"] {
     width: 10%;
     border-radius: 5px;
