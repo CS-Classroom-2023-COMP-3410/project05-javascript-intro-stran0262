@@ -11,7 +11,23 @@ const setHourInput = document.getElementById('set-hour');
 const setMinuteInput = document.getElementById('set-minute');
 const amPmDropdown = document.getElementById('am-pm-dropdown');
 const labels = document.querySelectorAll('label');  // All labels to apply color
-const customizeHeading = document.querySelector('h2');  // The customize heading
+const customizeHeading = document.querySelector('h2');  // The customize 
+
+const gradientColor1 = document.getElementById('gradient-color1');
+const gradientColor2 = document.getElementById('gradient-color2');
+
+// Event listeners to change the body background gradient when the colors are selected
+gradientColor1.addEventListener('input', updateGradientBackground);
+gradientColor2.addEventListener('input', updateGradientBackground);
+
+function updateGradientBackground() {
+    const color1 = gradientColor1.value;
+    const color2 = gradientColor2.value;
+    document.body.style.background = `linear-gradient(to bottom, ${color1}, ${color2})`;
+    
+    // Save the preferences to localStorage
+    savePreferences();
+}
 
 // State
 let is24HourFormat = false;
@@ -209,13 +225,16 @@ function savePreferences() {
     const preferences = {
         is24HourFormat,
         backgroundColor: backgroundPicker.value,
+        gradientColor1: gradientColor1.value,
+        gradientColor2: gradientColor2.value,
         color: textPicker.value,
         fontSize: fontSizeInput.value,
     };
+
+    document.body.style.background = `linear-gradient(to bottom, ${gradientColor1}, ${gradientColor2})`;
     localStorage.setItem('clockPreferences', JSON.stringify(preferences));
 }
 
-// Load preferences
 function loadPreferences() {
     const preferences = JSON.parse(localStorage.getItem('clockPreferences'));
     if (preferences) {
@@ -223,21 +242,36 @@ function loadPreferences() {
         backgroundPicker.value = preferences.backgroundColor;
         textPicker.value = preferences.color;
         clock.style.color = preferences.color;
+        gradientColor1.value = preferences.gradientColor1;  // Set the value for the first gradient color picker
+        gradientColor2.value = preferences.gradientColor2; 
+        fontSizeInput.value = preferences.fontSize;
+        clock.style.fontSize = `${preferences.fontSize}px`;
+
         // Apply the saved color to labels and the heading
         labels.forEach(label => {
             label.style.color = preferences.color;
         });
+
         if (customizeHeading) {
             customizeHeading.style.color = preferences.color;
         }
-        fontSizeInput.value = preferences.fontSize;
-        clock.style.fontSize = `${preferences.fontSize}px`;
-        document.querySelector('.container').style.backgroundColor = preferences.backgroundColor;
+
+        // Set background color if set (for solid background)
+        if (preferences.backgroundColor) {
+            document.querySelector('.container').style.backgroundColor = preferences.backgroundColor;
+        }
+
+        // Apply saved gradient background if available
+        if (preferences.gradientColor1 && preferences.gradientColor2) {
+            document.body.style.background = `linear-gradient(to bottom, ${preferences.gradientColor1}, ${preferences.gradientColor2})`;
+        }
+
         toggleFormatBtn.textContent = is24HourFormat
             ? 'Switch to 12-Hour Format'
             : 'Switch to 24-Hour Format';
     }
 }
+
 
 // Initialize everything
 initialize();

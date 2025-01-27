@@ -1,46 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Customizable Digital Clock</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="project01.css">
+    <head>
+        <title>Customizable Digital Clock</title>
+        <!-- CSS -->
+        <link rel="stylesheet" href="project01.css">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
 
-<div class="container">
-    <div id="clock"></div>
+        <div class="container">
+            <div id="clock"></div>
+            <button id="toggle-format">Switch to 12-Hour Format</button>
 
-    <button id="toggle-format">Switch to 12-Hour Format</button>
+            <h2>Customize</h2>
+            <div class="preferences">
+                <!-- Container customizing -->
+                <label for="background-color-picker">Container Color:</label>
+                <input type="color" id="background-color-picker" value="#ffffff">
 
-    <div class="preferences">
-        <h2>Customize</h2>
-        <label for="background-color-picker">Background Color:</label>
-        <input type="color" id="background-color-picker" value="#ffffff">
+                <label for="text-color-picker">Text Color:</label>
+                <input type="color" id="text-color-picker" value="#000000">
 
-        <label for="text-color-picker">Text Color:</label>
-        <input type="color" id="text-color-picker" value="#000000">
+                <label for="font-size">Font Size:</label>
+                <input type="number" id="font-size" min="10" max="100" value="48">
+                </div>
 
-        <label for="font-size">Font Size:</label>
-        <input type="number" id="font-size" min="10" max="100" value="48">
-    </div>
+                <!-- Background customizing -->
+                <div class="preferences">
+                    <label for="gradient-color1">Gradient Color 1:</label>
+                    <input type="color" id="gradient-color1" name="gradient-color1" value="#ffffff">
 
-    <div class="alarms" id="alarm-time">
-        <input type="number" id="set-hour" placeholder="Hour" min="1" max="12">
-        <input type="number" id="set-minute" placeholder="Minute" min="0" max="59">
-        <select id="am-pm-dropdown">
-            <option value="AM">AM</option>
-            <option value="PM">PM</option>
-        </select>
-        <button id="set-alarm">Set Alarm</button>
-    </div>
-    
-    <ul id="alarms-list"></ul>
+                    <label for="gradient-color2">Gradient Color 2:</label>
+                    <input type="color" id="gradient-color2" name="gradient-color2" value="#ffffff">
+                </div>
 
-</div>
+                <!-- Setting alarm -->
+                <div class="alarms" id="alarm-time">
+                    <label>Hour:</label>
+                    <input type="number" id="set-hour" placeholder="Hour" min="1" max="12">
+                    <label>Minute:</label>
+                    <input type="number" id="set-minute" placeholder="Minute" min="0" max="59">
+                    <!-- AM/PM selector -->
+                    <select id="am-pm-dropdown">
+                        <option value="AM">AM</option>
+                        <option value="PM">PM</option>
+                    </select>
+                </div>
 
-<script src="js/project01.js"></script>
-</body>
+                <!-- Alarm list -->
+                <button id="set-alarm">Set Alarm</button>
+                <ul id="alarms-list"></ul>
+        </div>
+        <!-- JS -->
+        <script src="js/project01.js"></script>
+    </body>
 </html>
