@@ -1,53 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Customizable Digital Clock</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="project01.css">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Clock</title>
-    <link rel="stylesheet" href="project01.css">
 </head>
 <body>
-    <div class="container">
-        <h1 id="clock"></h1>
-        <button id="toggle-format">Switch to 24-Hour Format</button>
 
-        <div class="theme-container">
-            <div class="switch-container">
-                <label class="switch">
-                    <input type="checkbox" class="switch-input">
-                    <span class="slider1"></span>
-                </label>
-                <label class="switch">
-                    <input type="checkbox" class="switch-input">
-                    <span class="slider2"></span>
-                </label>
-                <label class="switch">
-                    <input type="checkbox" class="switch-input">
-                    <span class="slider3"></span>
-                </label>
-            </div>            
-        </div>
-        
+<div class="container">
+    <div id="clock"></div>
 
-        <div class="settings">
-            <label for="background-color-picker">Background Color:</label>
-            <input type="color" id="background-color-picker">
+    <button id="toggle-format">Switch to 12-Hour Format</button>
 
-            <label for="color-picker">Clock Color:</label>
-            <input type="color" id="text-color-picker">
+    <div class="preferences">
+        <h2>Customize</h2>
+        <label for="background-color-picker">Background Color:</label>
+        <input type="color" id="background-color-picker" value="#ffffff">
 
-            <label for="font-size">Font Size (px):</label>
-            <input type="number" id="font-size" min="10" max="100">
-        </div>
+        <label for="text-color-picker">Text Color:</label>
+        <input type="color" id="text-color-picker" value="#000000">
 
-        <div class="alarm">
-            <label for="alarm-time">Set Alarm:</label>
-            <input type="time" id="alarm-time">
-        </div>
-
-        <button id="set-alarm">Set Alarm</button>
-        <ul id="alarms-list"></ul>
+        <label for="font-size">Font Size:</label>
+        <input type="number" id="font-size" min="10" max="100" value="48">
     </div>
-    <script src="js/project01.js"></script>
+
+    <div class="alarms" id="alarm-time">
+        <input type="number" id="set-hour" placeholder="Hour" min="1" max="12">
+        <input type="number" id="set-minute" placeholder="Minute" min="0" max="59">
+        <select id="am-pm-dropdown">
+            <option value="AM">AM</option>
+            <option value="PM">PM</option>
+        </select>
+        <button id="set-alarm">Set Alarm</button>
+    </div>
+    
+    <ul id="alarms-list"></ul>
+
+</div>
+
+<script src="js/project01.js"></script>
 </body>
 </html>
